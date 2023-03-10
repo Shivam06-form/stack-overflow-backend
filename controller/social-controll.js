@@ -5,7 +5,8 @@ const authModal = require("../modal/authModal");
 exports.SocialMedia = async (req, res, next) => {
   let newPost;
   let findUser;
-  const { title, text, userId } = req.body;
+  const { title, text, userId, image, video } = req.body;
+  console.log(req.body);
 
   try {
     findUser = await authModal.findOne({ id: userId });
@@ -23,7 +24,8 @@ exports.SocialMedia = async (req, res, next) => {
       userId,
       Email,
       Name,
-      image: req.file ? req.file.path : "",
+      image,
+      video,
     });
     await newPost.save();
   } catch (error) {
