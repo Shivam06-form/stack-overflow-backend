@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
 mongoose.set("strictQuery", true);
 
-app.use("/uploads/images", express.static(path.join("uploads", "images")));
+// app.use("/uploads/images", express.static(path.join("uploads", "images")));
 // app.use("/uploads/videos", express.static(path.join("uploads", "videos")));
 
 app.use((req, res, next) => {
@@ -59,6 +59,7 @@ app.use((err, req, res, next) => {
 });
 
 const DB = process.env.DB_URI;
+const PORT = process.env.PORT||4000
 
 mongoose
   .connect(DB, {
@@ -67,8 +68,8 @@ mongoose
   })
 
   .then(() =>
-    app.listen(4000, () => {
-      console.log(`App running on Port 4000...`);
+    app.listen(PORT, () => {
+      console.log(`App running on Port ${PORT}...`);
     })
   )
   .catch((error) => console.log(error));
