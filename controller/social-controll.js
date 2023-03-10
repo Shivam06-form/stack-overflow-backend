@@ -6,7 +6,7 @@ exports.SocialMedia = async (req, res, next) => {
   let newPost;
   let findUser;
   const { title, text, userId, image, video } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     findUser = await authModal.findOne({ id: userId });
