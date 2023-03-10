@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post(
   "/shareStatus",
-  fileUpload.single("image"),
+  // fileUpload.single("image"),
   // fileUpload2.single("video"),
   SocialMedia
 );
